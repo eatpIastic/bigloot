@@ -2,9 +2,9 @@
 
 import PogObject from "../PogData";
 
-const S02PacketChat = Java.type("net.minecraft.network.play.server.S02PacketChat");
-
-const data = new PogObject("bigloot", {}, "loot.json");
+const data = new PogObject("bigloot", {
+    "chests": 0
+}, "loot.json");
 data.save();
   
 let getLoot = false;
@@ -14,6 +14,8 @@ register("chat", (event) => {
     if (!getLoot) {
         if (chatMsg.match(/(WOOD|GOLD|EMERALD|OBSIDIAN|BEDROCK) CHEST REWARDS/)) {
             getLoot = true;
+            data["chests"] += 1;
+            data.save();
         }
         return;
     }
