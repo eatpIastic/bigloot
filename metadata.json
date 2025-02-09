@@ -1,0 +1,8 @@
+{
+    "name": "bigloot",
+    "creator": "eatplastic",
+    "version": "0.0.1",
+    "entry": "index.js",
+    "description": "m7 loot tracker",
+    "requires": ["PogData"]
+  }
